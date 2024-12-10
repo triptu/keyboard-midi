@@ -13,3 +13,51 @@ In addition, it connects to a RTP Midi server(you can use [this app](https://pla
 
 
 ![Sample Image](assets/image.png)
+
+
+## Steps to run
+
+Ensure that you have python installed.
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/triptu/keyboard-midi.git
+```
+
+2. Setup venv
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+3. Install dependencies (Mac)
+
+If you're on MacOs, first install portaudio -
+
+```bash
+brew install portaudio
+```
+
+4. Install dependencies
+
+```bash
+pip install pygame
+pip install tinysoundfont
+pip install coloredlogs
+pip install https://github.com/mik3y/pymidi/archive/main.zip
+```
+
+4. Run the script
+
+```bash
+python pymidi-client.py
+```
+
+5. You can also just run the standalone piano without midi client if you want to play
+   on desktop only.
+
+```bash
+python standalone-keyboard.py
+```
