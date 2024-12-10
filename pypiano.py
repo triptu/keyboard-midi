@@ -12,6 +12,8 @@ is_note_on: dict[str, bool] = {}
 
 num_white_keys = 0
 
+# based on https://github.com/gabriel-duque/pygame-piano
+
 for key in KEY_TO_NOTE:  # key is pygame keyboard event
     note = KEY_TO_NOTE[key] # the actual note like "C4", "Gs4" etc.
     is_note_on[note] = False
