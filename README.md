@@ -1,3 +1,5 @@
+[Blog](https://tushartripathi.me/posts/midi-keyboard/)
+
 ### Problem -
 
 - You don't have an actual piano or keyboard. But you want to use an app like Simply Piano etc. on phone which either require you to connect a MIDI keyboard, or even if they display on screen keyboard, it's clumsy to use because of less space.
