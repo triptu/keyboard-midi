@@ -1,11 +1,8 @@
-#!/usr/bin/env python3
-
-import os
-import sys
 import pygame
 from pypiano import draw_keyboard, display_note_on, display_note_off, color_grey
 from note_maps import KEY_TO_NOTE, NOTE_TO_NUMBER
 import tinysoundfont
+from threading import Timer
 
 # The number of different notes in an octave
 note_count = 12
@@ -25,7 +22,7 @@ print("soundfont loaded")
 
 def main() -> None:
     '''The main entrypoint for our program'''
-
+    pygame.font.init()
     pygame.display.init()
     pygame.display.set_caption('Standalone Piano')
     window = pygame.display.set_mode((640, 360))
@@ -66,7 +63,7 @@ def main() -> None:
                     note = KEY_TO_NOTE[key]
                     print(f'UP: Key: {key} Note: {note} ')
                     display_note_off(note)
-                    synth.noteoff(0, NOTE_TO_NUMBER[note])
+                    Timer(1.0, synth.noteoff, (0, NOTE_TO_NUMBER[note])).start()
 
         draw_keyboard(window)
         pygame.display.update()

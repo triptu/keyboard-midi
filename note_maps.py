@@ -22,6 +22,16 @@ KEY_TO_NOTE = {
     pygame.K_QUOTE: "F5"
 }
 
+NOTE_TO_HINDI_NOTE = {
+    "C": "sa",
+    "D": "re",
+    "E": "ga",
+    "F": "ma",
+    "G": "pa",
+    "A": "dha",
+    "B": "ni",
+}
+
 
 # the pitch number of each note
 NOTE_TO_NUMBER = {

@@ -2,8 +2,9 @@ import logging
 import pymidi.client
 import coloredlogs
 import pygame
-import threading
 import tinysoundfont
+from threading import Timer
+
 
 from note_maps import KEY_TO_NOTE, NOTE_TO_NUMBER
 from pypiano import draw_keyboard, color_grey, display_note_on, display_note_off
@@ -41,7 +42,7 @@ class RTPMIDIKeyboardSimulator:
 
         # Set up RTP MIDI
         self.client = pymidi.client.Client(name="py-keyboard", ssrc=242423)
-        self.synth = tinysoundfont.Synth()
+        self.synth = tinysoundfont.Synth() # for playing the notes
 
 
     def send_note_on(self, note, velocity=100):
@@ -58,7 +59,7 @@ class RTPMIDIKeyboardSimulator:
         """Send a MIDI Note Off message via RTP"""
         try:
             print(f"Note Off: {note}")
-            self.synth.noteoff(0, NOTE_TO_NUMBER[note])
+            Timer(1.0, self.synth.noteoff, (0, NOTE_TO_NUMBER[note]))
             display_note_off(note)
             self.client.send_note_off(note)
         except Exception as e:
